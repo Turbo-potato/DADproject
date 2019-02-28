@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <title>Contacts</title>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <!-- Custom styles -->
+  <link href="css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-dark navbar-expand-lg fixed-top shadow-sm ">
+      <a href="index.html" >Farming Assistant</a>
+     <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+     <div id="navbarSupportedContent" class="collapse navbar-collapse">
+       <ul class="navbar-nav ml-auto">
+         <li class="nav-item"><a href="about.html" >About Us</a></li>
+         <li class="nav-item"><a href="gallery.html">News</a></li>
+         <li class="nav-item"><a href="contacts.html" >Contacts</a></li>
+       </ul>
+       <div class="navbar-text ml-lg-3">
+         <a href="#myModal2" class="btn btn-outline-light" data-toggle="modal">Sign in</a>
+       </div>
+       <div class="navbar-text ml-lg-3">
+         <a href="#myModal" class="btn  btn-outline-light" data-toggle="modal">Sign Up</a>
+       </div>
+     </div>
+   </nav>
+
+
+      
+ 
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Sign up</h4>   
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+          <form name="sentMessage" id="contactForm" novalidate method="post" action="#">
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Full Name:</label>
+                <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                <p class="help-block"></p>
+              </div>
+            </div>
+            <!--
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+              </div>
+            </div>
+            -->
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Email Address:</label>
+                <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+              </div>
+            </div>
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Password:</label>
+                <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
+              </div>
+            </div>
+  
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Retype Password:</label>
+                <input type="password" class="form-control" id="re-password" required data-validation-required-message="Please retype your password.">
+              </div>
+            </div>
+  
+            <div id="success">
+            </div>
+            <!-- For success/fail messages -->
+            <button type="submit" class="btn btn-outline-dark" id="sendMessageButton">Sign Up</button>
+          </form>
+          </div>       
+          
+        </div>
+      </div>
+    </div> 
+  
+  <!-- Modal for sign in -->
+  
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Sign in</h4>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+          <form name="sentMessage" id="contactForm" novalidate method="post" action="#">
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Email:</label>
+                <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+              </div>
+            </div>
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Password:</label>
+                <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">
+              </div>
+            </div>
+  
+            <div id="success">
+            </div>
+            <!-- For success/fail messages -->
+            <button type="submit" class="btn btn-outline-dark" id="sendMessageButton">Sign In</button>
+          </form>
+          </div>       
+          
+        </div>
+      </div>
+    </div> 
+
+  <!-- The Modal for message sending -->
+  <div class="modal fade" id="messageSend">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Send a message</h4>   
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+        <form name="sentMessage" id="contactForm" novalidate method="post" action="#">
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Full Name:</label>
+              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <!--
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Phone Number:</label>
+              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+            </div>
+          </div>
+          -->
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email Address:</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Phone Number:</label>
+              <input type="number" class="form-control" id="number" required data-validation-required-message="Please enter your number.">
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Message:</label>
+              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+            </div>
+          </div>
+
+          <div id="success">
+          </div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-outline-dark" id="sendMessageButton">Send</button>
+        </form>
+        </div>       
+
+      </div>
+    </div>
+  </div> 
+
+<section class="contacts">
+  <!-- Page Content -->
+  <div class="container">
+      <div class="address">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Contacts
+      <small>Farming Assistance</small>
+    </h1>
+    <!-- Content Row -->
+    <div class="row">
+      <!-- Map Column -->
+      <div class="col-lg-8 mb-4">
+        <!-- Embedded Google Map -->
+        <iframe width="100%" style="margin-left: 1%;" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=43.253054, 76.915511&amp;spn=43.253054, 76.915511&amp;t=m&amp;z=15&amp;output=embed"></iframe>
+      </div>
+      <!-- Contact Details Column -->
+      <div class="col-lg-4 mb-4">
+        <h3>Contacts Details</h3>
+        <p>
+          3481 Tole Bi st.
+          <br>Almaty, 90210
+          <br>
+        </p>
+        <p>
+          <abbr title="Phone">Phone</abbr>: +7(707) 456-7890
+        </p>
+        <p>
+          <abbr title="Email">Email</abbr>:
+          <a class="text-light" href="mailto:name@example.com">farming@farming-assistance.com
+          </a>
+        </p>
+        <p>
+          <abbr title="Hours">Hours</abbr>: Monday - Friday: 9:00 AM to 5:00 PM
+        </p>
+        <p>
+          <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#messageSend">Send Message</button>
+        </p>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+    <!-- Contact Form -->
+    <div class="send">
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <div class="col-lg-8 mb-4">
+        <h3>Send us a Message</h3>
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Full Name:</label>
+              <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Phone Number:</label>
+              <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email Address:</label>
+              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+            </div>
+          </div>
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Message:</label>
+              <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-outline-light" id="sendMessageButton">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+    <!-- /.row -->
+  </div>
+  </div>
+</section>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Farming Assistance 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+</body>
+
+</html>
