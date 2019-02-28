@@ -1,7 +1,7 @@
 body {
   padding-top: 56px;
+  
 }
-
 section {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -15,10 +15,103 @@ section {
   vertical-align: -0.05em;
   stroke-width: 1;
 }
+.card-body a{
+  color: black;
+}
+.card-body:hover{
+  background-color: rgb(8, 39, 13);
+  color: white;
+}
+.card-body:hover a{
+  color: white;
+}
+section.first {
+  /* The image used */
+  background-image: url('../img/background.png');
 
+  /* Half height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+}
+section.about{
+  background-image: url('../img/backabout1.jpg');
+
+  /* Half height */
+  height: 100%;
+  padding-top: 1rem;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+  
+}
+section.about .container .col-lg-6{
+  color: white;
+  
+}
+.breadcrumb-color{
+  background-color:black;
+}
+section.second{
+  background-color: rgba(144, 199, 144, 0.301);
+}
+section.gallery{
+  background-image: url('../img/backforgalley.jpg');
+
+  /* Half height */
+  height: 100%;
+  padding-top: 1rem;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.py-5
+{
+  background-color: rgb(23, 80, 33);
+  color: white;
+}
+.navbar{
+	background-image: linear-gradient(to bottom right, rgb(32, 25, 25), rgb(10, 10, 10));
+  font-size: 150%;
+}
+.navbar a{
+  color: rgb(212, 212, 206);
+}
+.navbar a:hover{
+  text-decoration: none;
+  color:  rgb(248, 248, 247);
+}
+.navbar-nav  li{
+  padding: 10px;
+}
+section.contacts{
+  padding-top: 1rem;
+  color: white;
+  background: rgba(14, 61, 8, 0.897); /* Black color with 50% alpha/opacity */
+}
+
+section.contacts .container .send{
+  background: rgba(81, 146, 71, 0.685); /* Black color with 50% alpha/opacity */
+  
+}
+section.contacts .container .send .row{
+  margin-left: 1%;
+}
 .services-icon {
   margin-bottom: 20px;
   font-size: 30px;
+}
+.navbar-text .btn.btn-outline-light:hover{
+  color: black;
 }
 
 .quote-icon {
