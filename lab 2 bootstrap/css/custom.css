@@ -96,7 +96,7 @@ section.gallery{
 section.contacts{
   padding-top: 1rem;
   color: white;
-  background: rgba(14, 61, 8, 0.897); /* Black color with 50% alpha/opacity */
+  background: linear-gradient(to bottom right, rgb(7, 71, 28), rgb(9, 163, 55)); /* Black color with 50% alpha/opacity */
 }
 
 section.contacts .container .send{
