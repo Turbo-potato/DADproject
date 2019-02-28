@@ -1,2 +1,2 @@
 # DADAproject
-Just a bootstrap own design template
+Just an own bootstrap design template
