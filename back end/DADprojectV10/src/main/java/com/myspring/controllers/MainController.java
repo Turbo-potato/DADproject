@@ -1,6 +1,8 @@
 package com.myspring.controllers;
+import com.myspring.beans.RoomBean;
 import com.myspring.beans.UserBean;
 import com.myspring.entities.Roles;
+import com.myspring.entities.Rooms;
 import com.myspring.entities.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ import javax.servlet.http.HttpSession;
 
     @Autowired
     UserBean userBean;
+
+    @Autowired
+    RoomBean roomBean;
 
     @RequestMapping(value = {"index"})
     public ModelAndView indexPage(){
@@ -33,6 +38,37 @@ import javax.servlet.http.HttpSession;
         return mw;
     }
 
+    @RequestMapping(value = "/room", method = RequestMethod.GET)
+    public ModelAndView roomPage(@RequestParam(name = "id") Long id){
+        Rooms room = roomBean.getRoomById(id);
+        ModelAndView mw = new ModelAndView("room");
+        mw.addObject("room",room);
+        return mw;
+    }
+
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public ModelAndView adminPage(HttpSession session){
+        ModelAndView mw = new ModelAndView("admin");
+        return mw;
+    }
+
+    @RequestMapping(value = "/editRoom", method = RequestMethod.POST)
+    public ModelAndView editRoom(@RequestParam(name = "name") String name,
+                                 @RequestParam(name = "time") String time,
+                                 @RequestParam(name = "seats") String seats,
+                                 @RequestParam(name = "floor") String floor,
+                                 @RequestParam(name = "id") Long id){
+        Rooms room = roomBean.getRoomById(id);
+        //Or find by name
+        //Rooms room = roomBean.getRoomByName(name);
+        room.setTime(time);
+        room.setFloor(floor);
+        room.setName(name);
+        room.setSeats(seats);
+        roomBean.updateRoom(room);
+        return new ModelAndView("redirect:/room?id=" + room.getId());
+    }
+
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     public ModelAndView viewMain(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password, HttpSession session){
         Users user = userBean.getUserByLoginAndPassword(login,password);
@@ -45,7 +81,7 @@ import javax.servlet.http.HttpSession;
                 return mw;
             }
             else {
-                ModelAndView mw = new ModelAndView("profile");
+                ModelAndView mw = new ModelAndView("index"); // profile
                 mw.addObject("user", user);
                 return mw;
             }

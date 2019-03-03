@@ -34,4 +34,8 @@
     <bean id="UserBean" class="com.myspring.beans.UserBean">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <bean id="RoomBean" class="com.myspring.beans.RoomBean">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 </beans>

@@ -21,6 +21,14 @@
 
 /.idea
 /target
+/src/test
+/src/main/webapp/ali template
+/src/main/webapp/bootstrap template
+/src/main/webapp/resources
+/src/main/webapp/WEB-INF/lib
+/target
+/out
+/DADprojectV10.iml
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
