@@ -1,0 +1,98 @@
+body{
+	background-color: #c9c2b6;
+	margin: 0 auto;
+}
+.sign_in{
+	position: absolute;
+	right: 1%;
+	top:1%;
+	height: 5%;
+	width: 6%;
+	border-radius: 8px;
+	font-size: 100%;
+	color: white;
+	background-color:rgb(22, 21, 21) ;
+}
+.sign_in:hover{
+	background-color: #eee8de;
+	color: #ffa500;
+}
+.orange{
+	margin-left: 3%;
+	margin-top: 5%; 	
+	background-color: orangered;
+	border-radius: 10px;
+	font-size: 200%;
+	width: 20%;
+}
+li{
+	list-style-type:none;
+}
+.list{
+	font-size: 200%;
+	width: 20%;
+}
+.sign_up:hover{
+	background-color: #eee8de;
+	color: #ffa500;
+}
+.sign_up{
+	position: absolute;
+	right: 8%;
+	top:1%;
+	height: 5%;
+	width: 6%;
+	border-radius: 8px;
+	font-size: 100%;
+	color: white;
+	background-color:rgb(22, 21, 21) 
+}
+
+.header_nav{
+	height: 30%;
+	background-color: rgb(22, 21, 21);
+	word-spacing: 30px;
+	border-radius:2px;
+	
+}
+.nav_link{
+	font-size: 250%;
+	color: white;
+	text-decoration: none;
+	border-radius: 8px;
+}
+.nav_link:hover{
+	color: #ffa500;
+	background-color: white;
+}
+
+.cathegory{
+	background-color: chocolate;
+	width: 250px;
+}
+.cathegory li{
+	display: block;
+	font-size: 25px;
+	padding-bottom: 10px;
+}
+
+.logo{
+	float: left;
+	width: 50px;
+	height: 50px;
+	padding-right: 30px;
+}
+.cab_image{
+	width: 200px;
+	height: 200px;
+}
+.a_list{
+	background-color: black;
+	color: white;
+	padding-right: 100%;
+	text-decoration: none;
+}
+.a_list:hover{
+	background-color: white;
+	color: black;
+}
