@@ -146,6 +146,15 @@ section.main .sidebar_right h1{
     background-color: #800000;
     color: #f8f8f8;
 }
+button.btn.btn-ourhref{
+    background-color: white;
+    border: 1px solid #800000;
+    color: #800000;
+}
+button.btn.btn-ourhref:hover{
+    background-color: #800000;
+    color: white;
+}
 .row.text-center ul.pagination li.active.ourli span{
     background-color: #800000;
 }

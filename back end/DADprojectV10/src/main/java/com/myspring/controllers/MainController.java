@@ -9,4 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
     public ModelAndView indexPage(){
         return new ModelAndView("index1");
     }
+    @RequestMapping(value="aboutcabinet")
+    public ModelAndView aboutcabinetPage(){
+        return new ModelAndView("aboutcabinet");
+    }
 }

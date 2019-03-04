@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-3 room floor_3">
-                            <a href="#301">
+                            <a href="aboutcabinet">
                                 <span class="image" style="background-image: url('https://storage.tpu.ru/thumbnail/52dd837894612e2bc75c88478936f723/bf796d445258c806/3b00afd0b3231589.jpg')"></span>
                             </a>
                             <div class="info white_with_shadow">
