@@ -22,8 +22,8 @@
 /.idea
 /target
 /src/test
-/src/main/webapp/ali template
-/src/main/webapp/bootstrap template
+/src/main/webapp/aliTemplate
+/src/main/webapp/bootstrapTemplate
 /src/main/webapp/resources
 /src/main/webapp/WEB-INF/lib
 /target
