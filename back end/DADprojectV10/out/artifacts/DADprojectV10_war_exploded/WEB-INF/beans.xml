@@ -38,4 +38,12 @@
     <bean id="RoomBean" class="com.myspring.beans.RoomBean">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <bean id="ReserveBean" class="com.myspring.beans.ReserveBean">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="TimeBean" class="com.myspring.beans.TimeBean">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 </beans>

@@ -38,6 +38,18 @@ import javax.servlet.http.HttpSession;
         return mw;
     }
 
+    @RequestMapping(value = "/index1", method = RequestMethod.GET)
+    public ModelAndView index1(HttpSession session){
+        ModelAndView mw = new ModelAndView("index1");
+        return mw;
+    }
+
+    @RequestMapping(value = "/library", method = RequestMethod.GET)
+    public ModelAndView library(HttpSession session){
+        ModelAndView mw = new ModelAndView("library");
+        return mw;
+    }
+
     @RequestMapping(value = "/room", method = RequestMethod.GET)
     public ModelAndView roomPage(@RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
