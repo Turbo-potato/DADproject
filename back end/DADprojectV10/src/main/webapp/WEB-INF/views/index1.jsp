@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="ru">
-<base href="/"/>
+<!-- <base href="/"/> -->
 <head>
+   <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/style.css" rel="stylesheet">
+    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="http://www.iitu.kz/css/font-awesome.min.css" rel="stylesheet">
     <meta charset="utf-8">
     <title>Booking</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -9,10 +14,6 @@
 </head>
 
 <body>
-
-<style><%@include file="/WEB-INF/views/vendor/bootstrap/css/bootstrap.min.css"%></style>
-<style><%@include file="/WEB-INF/views/vendor/bootstrap/css/style.css"%></style>
-    <style><%@include file="/WEB-INF/views/vendor/bootstrap/css/bootstrap-datepicker3.min.css"%></style>
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -35,7 +36,7 @@
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
                 <li>
-                    <a href="#">John Doe</a>
+                    <a href="profile.jsp">John Doe</a>
                 </li>
                 <li><a href="">Exit</a></li>
             </ul>
@@ -66,7 +67,7 @@
                 <div class="panel-body" id="rooms">
                     <div class="row rooms_row">
                         <div class="col-xs-6 col-md-3 room floor_1">
-                            <a href="#129">
+                            <a href="library.jsp">
                                 <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
                             </a>
                             <div class="info white_with_shadow">
@@ -470,13 +471,45 @@
 
     </div>
 </section>
+<footer>
+      
+    <!-- CONTAINER -->
+    <div class="container">
+      
+      <!-- ROW -->
+      
+      
+    </div><!-- //CONTAINER -->
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/bootstrap-datepicker.js"></script>
-<script src="/js/bootstrap-datepicker.ru.min.js"></script>
-<script src="/js/list.js"></script>
-<script src="/js/app.js"></script>
+    <div class="t3-copyright" style="padding: 15px;text-align: center; background:rgba(0, 0, 0, 0.27) none repeat scroll 0% 0%; height: 100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 copyright ">
+          <div class="module">
+            <div class="col-md-3">
+
+
+
+
+
+            </div>
+            <div class="col-md-6" style="margin-top: 8px;">
+              © 2019 IITU. Все права защищены. <a href="https://github.com/Turbo-potato/DADAproject" target="_blank"> DADA Team</a>
+            </div>
+  
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </footer>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/jquery/jquery.min.js"></script>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor\bootstrap\js/bootstrap.min.js"></script>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap-datepicker.js"></script>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap-datepicker.ru.min.js"></script>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/list.js"></script>
+<script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/app.js"></script>
 <script type="text/javascript">
     function showFloor(floor,e){
         $(e).removeClass('btn-default');
