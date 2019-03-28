@@ -2,6 +2,10 @@ package com.myspring.entities;
 
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "rooms")
@@ -24,6 +28,28 @@ public class Rooms {
     @Column(name = "floor", length = 250)
     private String floor;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Times> times;
+
+    public Rooms(Long id, String name, String time, String seats, String floor, Set<Times> times) {
+        this.name = name;
+        this.time = time;
+        this.seats = seats;
+        this.floor = floor;
+        this.times = times;
+        this.id = id;
+        this.times = new HashSet<Times>();
+    }
+
+    public Set<Times> getTimes() {
+
+        return times;
+    }
+
+    public void setTimes(Set<Times> times) {
+        this.times = times;
+    }
+
     public Rooms() {
     }
 
@@ -41,6 +67,7 @@ public class Rooms {
         this.time = time;
         this.seats = seats;
         this.floor = floor;
+        this.times = new HashSet<Times>();
     }
 
     public Long getId() {

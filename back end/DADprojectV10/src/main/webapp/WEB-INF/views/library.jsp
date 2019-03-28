@@ -38,7 +38,7 @@
                 <li>
                     <a href="#">John Doe</a>
                 </li>
-                <li><a href="">Exit</a></li>
+                <li><a href="/login">Exit</a></li>
             </ul>
         </div>
     </div>
@@ -2431,12 +2431,14 @@
     <button type="submit">reserve</button>
 </form>
 
+<!--
 <script src="../../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.min.js"></script>
 <script src="../../resources/vendor/js/list.js"></script>
 <script src="../../resources/vendor/js/app.js"></script>
+-->
 <script>
     $('document').ready(function(){
         $('.reserve').click(function(){

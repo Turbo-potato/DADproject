@@ -112,7 +112,7 @@ import javax.servlet.http.HttpSession;
                 return mw;
             }
             else {
-                ModelAndView mw = new ModelAndView("index"); // profile
+                ModelAndView mw = new ModelAndView("library"); // library (was profile)
                 mw.addObject("user", user);
                 return mw;
             }
