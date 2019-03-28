@@ -1,3 +1,7 @@
+<%@ page import="com.myspring.entities.Times" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.myspring.entities.Rooms" %>
+<%@ page import="com.myspring.entities.Reserves" %>
 <!doctype html>
 <html lang="ru">
 <!-- <base href="/"/> -->
@@ -10,10 +14,14 @@
     <title>Booking</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="_token" content="UP7kIiEBuJtkEAeEpzLcQNjExoXg1tPZ8JOXCiD2">
+
 </head>
 
 <body>
-
+<%
+List<Reserves> reserves = (List<Reserves>)request.getAttribute("reserves");
+Rooms rooms = (Rooms) request.getAttribute("room");
+%>
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -33,10 +41,10 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav_href" href="/my">My schedule</a>
+                    <a class="nav_href" href="my">My schedule</a>
                 </li>
                 <li>
-                    <a href="#">John Doe</a>
+                    <a href="library?id=1">John Doe</a>
                 </li>
                 <li><a href="">Exit</a></li>
             </ul>
@@ -92,10 +100,30 @@
                                             <i class="point "></i>
                                         </div>
                                         <div class="content free_for_book">
-                                        <h2>8:00 <button class="btn btn-reserve" id="go">Забронировать</button> </h2>
-                                                <p>Свободно</p>
+                                        <h2>8:00
+                                            <%
+                                                boolean A = false;
+                                            for(Reserves reserves1:reserves){
+                                                System.out.println(reserves1.getRoom_id());
+                                                if(reserves1.getRoom_id().equals(rooms.getId())){%>
+                                            <%A = true;break;
+                                                }
+                                            }
+                                            if(!A)
+                                            {%>
+                                            <button class="btn btn-reserve" id="go">Забронировать</button> </h2>
+
+                                            <p>Свободно</p>
+                                            <%}
+                                            else{%>
+                                            </h2>
+                                            <p>Забронировано</p>
+
+                                            <%}
+                                                %>
                                                  </div>
                                         <div class="content book_this">
+                                            <%%>
                                             <h2>8:00 - <em>Бронирование аудитории</em>
                                             </h2>
                                             <form class="form-inline booking_form" method="POST" action="#" id="booking">

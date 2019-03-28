@@ -37,7 +37,7 @@
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
                 <li>
-                    <a href="#">John Doe</a>
+                    <a href="library?id=1">John Doe</a>
                 </li>
                 <li><a href="">Exit</a></li>
             </ul>

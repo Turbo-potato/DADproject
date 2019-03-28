@@ -3,10 +3,7 @@ import com.myspring.beans.ReserveBean;
 import com.myspring.beans.RoomBean;
 import com.myspring.beans.TimeBean;
 import com.myspring.beans.UserBean;
-import com.myspring.entities.Reserves;
-import com.myspring.entities.Roles;
-import com.myspring.entities.Rooms;
-import com.myspring.entities.Users;
+import com.myspring.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.codec.digest.DigestUtils;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller public class MainController {
 
@@ -64,8 +62,11 @@ import javax.servlet.http.HttpSession;
     @RequestMapping(value = "/library", method = RequestMethod.GET)
     public ModelAndView libraryPage(@RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
+        List<Reserves> reserves = reserveBean.getAllReserves();
         ModelAndView mw = new ModelAndView("library");
         mw.addObject("room",room);
+        System.out.println(room.getId());
+        mw.addObject("reserves",reserves);
         return mw;
     }
 
@@ -76,11 +77,11 @@ import javax.servlet.http.HttpSession;
     }
 
     @RequestMapping(value = "/reserve", method = RequestMethod.POST)
-    public ModelAndView reserveRoom(@RequestParam(name = "room_id") Long room_id,
+    public String reserveRoom(@RequestParam(name = "room_id") Long room_id,
                                     @RequestParam(name = "time_id") Long time_id){
         reserveBean.addReserve(new Reserves(null,room_id,time_id));
-        ModelAndView mw = new ModelAndView("library");
-        return mw;
+
+        return "redirect:/library?id=1";
     }
 
     @RequestMapping(value = "/editRoom", method = RequestMethod.POST)
