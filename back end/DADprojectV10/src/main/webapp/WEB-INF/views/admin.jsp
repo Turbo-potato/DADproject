@@ -38,10 +38,10 @@
                 <li>
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
-                <li>
-                    <a href="#">Admin page</a>
+                <li>Admin
+                    <a href="/profile">Admin</a>
                 </li>
-                <li><a href="">Exit</a></li>
+                <li><a href="/login">Exit</a></li>
             </ul>
         </div>
     </div>
@@ -78,7 +78,7 @@
                                     <div class="col-xs-5 number">
                                         <p>129</p>
                                     </div>
-                                    <div class="col-xs-5 name"><p>Library <a href="#">edit</a></p></div>
+                                    <div class="col-xs-5 name"><p>Library <a href="/room?id=3">edit</a></p></div>
                                     <div class="col-xs-2 link"> <p>
                                         <a href="#129">
                                             <i class="go_link"></i>
@@ -97,7 +97,7 @@
                                     <div class="col-xs-5 number">
                                         <p>226</p>
                                     </div>
-                                    <div class="col-xs-5 name"><p>Laboratory <a href="#">edit</a></p></div>
+                                    <div class="col-xs-5 name"><p>Laboratory <a href="/room?id=1">edit</a></p></div>
                                     <div class="col-xs-2 link"> <p>
                                         <a href="#226">
                                             <i class="go_link"></i>
@@ -116,7 +116,7 @@
                                     <div class="col-xs-5 number">
                                         <p>301</p>
                                     </div>
-                                    <div class="col-xs-5 name"><p>Lecture Hall <a href="#">edit</a></p></div>
+                                    <div class="col-xs-5 name"><p>Lecture Hall <a href="/room?id=2">edit</a></p></div>
                                     <div class="col-xs-2 link"> <p>
                                         <a href="#301">
                                             <i class="go_link"></i>
@@ -135,7 +135,7 @@
                                     <div class="col-xs-5 number">
                                         <p>302</p>
                                     </div>
-                                    <div class="col-xs-5 name"><p>lecture hall <a href="#">edit</a></p></div>
+                                    <div class="col-xs-5 name"><p>lecture hall <a href="/room?id=4">edit</a></p></div>
                                     <div class="col-xs-2 link"> <p>
                                         <a href="#302">
                                             <i class="go_link"></i>

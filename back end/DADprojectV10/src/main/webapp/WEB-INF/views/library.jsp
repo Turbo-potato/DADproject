@@ -36,7 +36,7 @@
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
                 <li>
-                    <a href="#">John Doe</a>
+                    <a href="/profile">${user.nickname}</a>
                 </li>
                 <li><a href="/login">Exit</a></li>
             </ul>

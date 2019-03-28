@@ -47,6 +47,12 @@ import javax.servlet.http.HttpSession;
         return mw;
     }
 
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public ModelAndView profilePage(HttpSession session){
+        ModelAndView mw = new ModelAndView("profile");
+        return mw;
+    }
+
     @RequestMapping(value = "/index1", method = RequestMethod.GET)
     public ModelAndView index1(HttpSession session){
         ModelAndView mw = new ModelAndView("index1");
