@@ -1,6 +1,9 @@
 package com.myspring.controllers;
+import com.myspring.beans.ReserveBean;
 import com.myspring.beans.RoomBean;
+import com.myspring.beans.TimeBean;
 import com.myspring.beans.UserBean;
+import com.myspring.entities.Reserves;
 import com.myspring.entities.Roles;
 import com.myspring.entities.Rooms;
 import com.myspring.entities.Users;
@@ -20,6 +23,12 @@ import javax.servlet.http.HttpSession;
 
     @Autowired
     RoomBean roomBean;
+
+    @Autowired
+    ReserveBean reserveBean;
+
+    @Autowired
+    TimeBean timeBean;
 
     @RequestMapping(value = {"index"})
     public ModelAndView indexPage(){
@@ -44,12 +53,6 @@ import javax.servlet.http.HttpSession;
         return mw;
     }
 
-    @RequestMapping(value = "/library", method = RequestMethod.GET)
-    public ModelAndView library(HttpSession session){
-        ModelAndView mw = new ModelAndView("library");
-        return mw;
-    }
-
     @RequestMapping(value = "/room", method = RequestMethod.GET)
     public ModelAndView roomPage(@RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
@@ -58,9 +61,25 @@ import javax.servlet.http.HttpSession;
         return mw;
     }
 
+    @RequestMapping(value = "/library", method = RequestMethod.GET)
+    public ModelAndView libraryPage(@RequestParam(name = "id") Long id){
+        Rooms room = roomBean.getRoomById(id);
+        ModelAndView mw = new ModelAndView("library");
+        mw.addObject("room",room);
+        return mw;
+    }
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public ModelAndView adminPage(HttpSession session){
         ModelAndView mw = new ModelAndView("admin");
+        return mw;
+    }
+
+    @RequestMapping(value = "/reserve", method = RequestMethod.POST)
+    public ModelAndView reserveRoom(@RequestParam(name = "room_id") Long room_id,
+                                    @RequestParam(name = "time_id") Long time_id){
+        reserveBean.addReserve(new Reserves(null,room_id,time_id));
+        ModelAndView mw = new ModelAndView("library");
         return mw;
     }
 

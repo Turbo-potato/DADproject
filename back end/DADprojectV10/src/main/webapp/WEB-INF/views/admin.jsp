@@ -70,7 +70,7 @@
                 <div class="panel-body" id="rooms">
                     <div class="row rooms_row">
                         <div class="col-xs-6 col-md-3 room floor_1">
-                            <a href="/room?id=3">
+                            <a href="/library?id=3">
                                 <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
                             </a>
                             <div class="info white_with_shadow">
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-3 room floor_2">
-                            <a href="/room?id=1">
+                            <a href="/library?id=1">
                                 <span class="image" style="background-image: url('http://www.iitu.kz/upload/News/full/News-image-temp15363-0.jpg')"></span>
                             </a>
                             <div class="info white_with_shadow">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-3 room floor_3">
-                            <a href="/room?id=2">
+                            <a href="/library?id=2">
                                 <span class="image" style="background-image: url('https://storage.tpu.ru/thumbnail/52dd837894612e2bc75c88478936f723/bf796d445258c806/3b00afd0b3231589.jpg')"></span>
                             </a>
                             <div class="info white_with_shadow">
@@ -127,7 +127,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-3 room floor_3">
-                            <a href="/room?id=4">
+                            <a href="/library?id=4">
                                 <span class="image" style="background-image: url('https://kai.ru/image/journal/article?img_id=6951668&t=1507114653101')"></span>
                             </a>
                             <div class="info white_with_shadow">

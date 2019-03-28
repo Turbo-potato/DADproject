@@ -44,7 +44,7 @@
     </div>
 </nav>
 <header>
-    <h1 class="text-center ">Booking authditory</h1>
+    <h1 class="text-center ">Booking auditory</h1>
 </header>
 <section class="main">
         <div class="container">
@@ -92,7 +92,7 @@
                                             <i class="point "></i>
                                         </div>
                                         <div class="content free_for_book">
-                                        <h2>8:00 <button class="btn btn-reserve">Забронировать</button> </h2>
+                                        <h2>8:00 <button class="btn btn-reserve reserve" id="go">Забронировать</button> </h2>
                                                 <p>Свободно</p>
                                                  </div>
                                         <div class="content book_this">
@@ -760,7 +760,7 @@
                                             <i class="point "></i>
                                         </div>
                                         <div class="content free_for_book">
-                                <h2>12:00 <button class="btn btn-reserve">Забронировать</button> </h2>
+                                <h2>12:00 <button class="btn btn-reserve reserve">Забронировать</button> </h2>
                                                 <p>Свободно</p>
                                                     </div>
                                         <div class="content book_this">
@@ -2269,7 +2269,7 @@
                                         </div>
                                         <div class="content ">
                                                  <h2>21:15
-                    <button class="btn btn-reserve">Забронировать</button>                                                </h2>
+                    <button class="btn btn-reserve reserve">Забронировать</button>                                                </h2>
                                                 <p>Свободно</p>
                                                      </div>
                                         <div class="content book_this">
@@ -2424,15 +2424,26 @@
 
     </section>
 
+
+<form action="/reserve" method="post" id="send">
+    <input type="hidden" name="room_id" value="${room.id}" id="form_room">
+    <input type="hidden" name="time_id" value="3" id="form_time">
+    <button type="submit">reserve</button>
+</form>
+
 <script src="../../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../resources/vendor/bootstrap/bootstrap-datepicker.js"></script>
-<script src="../../resources/vendor/bootstrap-datepicker.ru.min.js"></script>
-<script src="../../resources/views/vendor/list.js"></script>
-<script src="../../resources/vendor/app.js"></script>
+<script src="../../resources/vendor/js/bootstrap-datepicker.js"></script>
+<script src="../../resources/vendor/js/bootstrap-datepicker.min.js"></script>
+<script src="../../resources/vendor/js/list.js"></script>
+<script src="../../resources/vendor/js/app.js"></script>
 <script>
     $('document').ready(function(){
-
+        $('.reserve').click(function(){
+            $('#form_room').val(${room.id});
+            $('#form_time').val(3);
+           // $('#send').submit();
+        });
     });
 </script>
 </body>

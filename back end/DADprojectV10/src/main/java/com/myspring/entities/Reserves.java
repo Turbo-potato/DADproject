@@ -52,7 +52,7 @@ public class Reserves {
         this.time_id = time_id;
     }
 
-    public Reserves(long id, Long room_id, Long time_id) {
+    public Reserves(Long id, Long room_id, Long time_id) {
 
         this.id = id;
         this.room_id = room_id;
