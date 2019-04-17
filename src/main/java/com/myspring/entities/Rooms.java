@@ -15,8 +15,7 @@ public class Rooms {
     @Column(name = "name",length = 50)
     private String name;
 
-    @Column(name = "time", length = 250)
-    private String time;
+
 
     @Column(name = "seats", length = 250)
     private String seats;
@@ -30,7 +29,6 @@ public class Rooms {
     public Rooms(String name, String time, String seats, String floor) {
 
         this.name = name;
-        this.time = time;
         this.seats = seats;
         this.floor = floor;
     }
@@ -38,7 +36,6 @@ public class Rooms {
     public Rooms(Long id, String name, String time, String seats, String floor) {
         this.id = id;
         this.name = name;
-        this.time = time;
         this.seats = seats;
         this.floor = floor;
     }
@@ -58,14 +55,6 @@ public class Rooms {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getSeats() {

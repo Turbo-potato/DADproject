@@ -85,8 +85,6 @@
 <form method="post" action="/editRoom" class="form col-md-6">
     <label>Name</label>
     <input type="text" name="name" class="form-control" value="${room.name}">
-    <label>Time</label>
-    <input type="text" name="time" class="form-control" value="${room.time}">
     <label>Seats</label>
     <input type="number" name="seats" class="form-control" value="${room.seats}">
     <label>Floor</label>

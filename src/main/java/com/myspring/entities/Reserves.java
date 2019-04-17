@@ -12,11 +12,40 @@ public class Reserves {
     @Column(name = "id")
     private Long id;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private Users users;
+
+
+
     @Column(name = "room_id")
     private Long room_id;
 
     @Column(name = "time_id")
     private Long time_id;
+    @Column(name="status")
+    private String status;
+
+    public Reserves(Long room_id, Long time_id, String status) {
+        this.room_id = room_id;
+        this.time_id = time_id;
+        this.status = status;
+    }
+
+    public Reserves(Users users, Long room_id, Long time_id, String status) {
+        this.users = users;
+        this.room_id = room_id;
+        this.time_id = time_id;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Long getId() {
         return id;
@@ -42,6 +71,13 @@ public class Reserves {
         this.time_id = time_id;
     }
 
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
     public Reserves() {
 
     }

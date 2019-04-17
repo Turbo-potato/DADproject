@@ -35,7 +35,7 @@ public class ReserveBean {
     }
 
 
-    public Reserves getReserveById(Long id){
+    public List<Reserves> getReserveById(Long id){
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Reserves> criteriaQuery = builder.createQuery(Reserves.class);
@@ -43,7 +43,7 @@ public class ReserveBean {
         Predicate idPred = builder.equal(root.get("id"), id);
         List<Reserves> reservesList = session.createQuery(criteriaQuery.where(idPred)).list();
         session.close();
-        return (reservesList!=null?reservesList.get(0):null);
+        return (reservesList!=null?reservesList:null);
     }
 
     public Reserves getReserveByName(String name){
@@ -55,6 +55,19 @@ public class ReserveBean {
         List<Reserves> reservesList = session.createQuery(criteriaQuery.where(roomName)).list();
         session.close();
         return (reservesList!=null?reservesList.get(0):null);
+    }
+
+    public List<Reserves> getReserveByUserId(Users users)
+    {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Reserves> criteriaQuery = builder.createQuery(Reserves.class);
+        Root root = criteriaQuery.from(Reserves.class);
+        Predicate idPred = builder.equal(root.get("users"), users);
+        List<Reserves> reservesList = session.createQuery(criteriaQuery.where(idPred)).list();
+        session.close();
+        return (reservesList!=null?reservesList:null);
+
     }
 
 

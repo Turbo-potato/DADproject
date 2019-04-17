@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.codec.digest.DigestUtils;
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller public class MainController {
@@ -28,9 +30,13 @@ import java.util.List;
     @Autowired
     TimeBean timeBean;
 
-    @RequestMapping(value = {"index"})
-    public ModelAndView indexPage(){
-        return new ModelAndView("index");
+    @RequestMapping(value = "/index",method = RequestMethod.GET)
+    public ModelAndView indexPage(@RequestParam("id") Long user_id){
+        ModelAndView mw = new ModelAndView("index");
+        Users users = userBean.getUserById(user_id);
+        //System.out.println(users.getNickname());
+        mw.addObject("users",users);
+        return mw;
     }
 
     @RequestMapping(value = {"/","/login"}, method = RequestMethod.GET)
@@ -61,12 +67,13 @@ import java.util.List;
 
     @RequestMapping(value = "/library", method = RequestMethod.GET)
     public ModelAndView libraryPage(@RequestParam(name = "id") Long id){
-        Rooms room = roomBean.getRoomById(id);
-        List<Reserves> reserves = reserveBean.getAllReserves();
         ModelAndView mw = new ModelAndView("library");
-        mw.addObject("room",room);
-        System.out.println(room.getId());
+        Users users = userBean.getUserById(id);
+        List<Reserves> reserves = reserveBean.getAllReserves();
+        mw.addObject("users",users);
         mw.addObject("reserves",reserves);
+        List<Times> times = timeBean.getAllTimes();
+        mw.addObject("times",times);
         return mw;
     }
 
@@ -77,23 +84,30 @@ import java.util.List;
     }
 
     @RequestMapping(value = "/reserve", method = RequestMethod.POST)
-    public String reserveRoom(@RequestParam(name = "room_id") Long room_id,
-                                    @RequestParam(name = "time_id") Long time_id){
-        reserveBean.addReserve(new Reserves(null,room_id,time_id));
+    public String reserveRoom(@RequestParam(name = "time_id") Long time_id,
+                              @RequestParam(name = "user_id") Long user_id){
+        Users users = userBean.getUserById(user_id);
+        reserveBean.addReserve(new Reserves(users,new Long(1),time_id,"Y"));
+        return "redirect:/library?id=" + user_id;
+    }
 
-        return "redirect:/library?id=1";
+    @RequestMapping(value = "/dereserve",method = RequestMethod.POST)
+    public String DereserveRoom(@RequestParam("reserve_id") Long reserve_id,@RequestParam("user_id") Long user_id)
+    {
+        Users users = userBean.getUserById(user_id);
+        reserveBean.deleteReserve(new Reserves(reserve_id,new Long(1),new Long(1)));
+        return "redirect:/library?id=" + user_id;
     }
 
     @RequestMapping(value = "/editRoom", method = RequestMethod.POST)
     public ModelAndView editRoom(@RequestParam(name = "name") String name,
-                                 @RequestParam(name = "time") String time,
                                  @RequestParam(name = "seats") String seats,
                                  @RequestParam(name = "floor") String floor,
                                  @RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
         //Or find by name
         //Rooms room = roomBean.getRoomByName(name);
-        room.setTime(time);
+       // room.setTime(time);
         room.setFloor(floor);
         room.setName(name);
         room.setSeats(seats);
@@ -102,26 +116,23 @@ import java.util.List;
     }
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
-    public ModelAndView viewMain(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password, HttpSession session){
+    public String viewMain(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password, HttpSession session){
         Users user = userBean.getUserByLoginAndPassword(login,password);
         //Users user = getUserData();
         if (user != null) {
             session.setAttribute("sessionUser", user);
             if(user.getLogin().equals("admin") && user.getPassword().equals("d033e22ae348aeb5660fc2140aec35850c4da997")){
-                ModelAndView mw = new ModelAndView("admin");
-                mw.addObject("user",user);
-                return mw;
+                return "redirect:/admin";
             }
             else {
-                ModelAndView mw = new ModelAndView("index"); // profile
-                mw.addObject("user", user);
-                return mw;
+                return "redirect:/index?id="+user.getId();
             }
         }
         else{
             System.out.println("DEBUG: USER IS NULL!");
         }
-        return new ModelAndView("redirect:/login");
+      //  return new ModelAndView("redirect:/login");
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)

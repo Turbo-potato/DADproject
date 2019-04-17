@@ -1,17 +1,19 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.myspring.entities.Users" %>
 <!DOCTYPE html>
 <html lang="ru">
 <base href="/"/>
 <head>
-    <meta charset="utf-8">
     <title>Booking</title>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="_token" content="UP7kIiEBuJtkEAeEpzLcQNjExoXg1tPZ8JOXCiD2">
 </head>
 
 <body>
-
+<%
+    Users users = (Users)request.getAttribute("users");
+%>
 <style><%@include file="../../resources/css/bootstrap.min.css"%></style>
 <style><%@include file="../../resources/css/style.css"%></style>
 <style><%@include file="../../resources/css/bootstrap-datepicker3.min.css"%></style>
@@ -37,7 +39,7 @@
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
                 <li>
-                    <a href="library?id=1">John Doe</a>
+                    <a href="library?id=<%=users.getId()%>"><%=users.getNickname()%></a>
                 </li>
                 <li><a href="">Exit</a></li>
             </ul>
@@ -68,7 +70,7 @@
                 <div class="panel-body" id="rooms">
                     <div class="row rooms_row">
                         <div class="col-xs-6 col-md-3 room floor_1">
-                            <a href="#129">
+                            <a href="/library?id=129">
                                 <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
                             </a>
                             <div class="info white_with_shadow">
