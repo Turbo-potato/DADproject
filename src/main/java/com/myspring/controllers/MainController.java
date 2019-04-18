@@ -85,7 +85,8 @@ import java.util.List;
 
     @RequestMapping(value = "/reserve", method = RequestMethod.POST)
     public String reserveRoom(@RequestParam(name = "time_id") Long time_id,
-                              @RequestParam(name = "user_id") Long user_id){
+                              @RequestParam(name = "user_id") Long user_id,
+                              @RequestParam(name = "title") String title){
         Users users = userBean.getUserById(user_id);
         reserveBean.addReserve(new Reserves(users,new Long(1),time_id,"Y"));
         return "redirect:/library?id=" + user_id;
