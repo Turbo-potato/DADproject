@@ -31,8 +31,8 @@ public class TimeBean {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Times> criteriaQuery = builder.createQuery(Times.class);
         Root root = criteriaQuery.from(Times.class);
-        List<Times> reservesList = session.createQuery(criteriaQuery).list();
-        return reservesList;
+        List<Times> timesList = session.createQuery(criteriaQuery).list();
+        return timesList;
     }
 
 

@@ -68,7 +68,7 @@ public class RoomBean {
     public void updateRoom(Rooms room){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(room);
+        session.saveOrUpdate(room);
         transaction.commit();
         session.close();
     }

@@ -13,14 +13,11 @@ public class Rooms {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",length = 50)
+    @Column(name = "id",length = 100)
     private Long id;
 
-    @Column(name = "name",length = 50)
+    @Column(name = "name",length = 250)
     private String name;
-
-    @Column(name = "time", length = 250)
-    private String time;
 
     @Column(name = "seats", length = 250)
     private String seats;
@@ -28,15 +25,50 @@ public class Rooms {
     @Column(name = "floor", length = 250)
     private String floor;
 
+    @Column(name = "description", length = 255)
+    private String description;
+
+    @Column(name = "computers", length = 100)
+    private Long computers;
+
+    @Column(name = "hasProjector", length = 100)
+    private boolean hasProjector;
+
+    public boolean isHasProjector() {
+        return hasProjector;
+    }
+
+    public void setHasProjector(boolean hasProjector) {
+        this.hasProjector = hasProjector;
+    }
+
+    public boolean hasProjector() {
+        return hasProjector;
+    }
+
+    public Long getComputers() {
+        return computers;
+    }
+
+    public void setComputers(Long computers) {
+        this.computers = computers;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Times> times;
 
-    public Rooms(Long id, String name, String time, String seats, String floor, Set<Times> times) {
+    public Rooms(Long id, String name, String time, String seats, String floor) {
         this.name = name;
-        this.time = time;
         this.seats = seats;
         this.floor = floor;
-        this.times = times;
         this.id = id;
         this.times = new HashSet<Times>();
     }
@@ -53,18 +85,16 @@ public class Rooms {
     public Rooms() {
     }
 
-    public Rooms(String name, String time, String seats, String floor) {
+    public Rooms(String name, String seats, String floor) {
 
         this.name = name;
-        this.time = time;
         this.seats = seats;
         this.floor = floor;
     }
 
-    public Rooms(Long id, String name, String time, String seats, String floor) {
+    public Rooms(Long id, String name, String seats, String floor) {
         this.id = id;
         this.name = name;
-        this.time = time;
         this.seats = seats;
         this.floor = floor;
         this.times = new HashSet<Times>();
@@ -85,14 +115,6 @@ public class Rooms {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getSeats() {

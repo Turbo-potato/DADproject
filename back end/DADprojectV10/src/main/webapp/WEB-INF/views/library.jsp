@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="ru">
 <!-- <base href="/"/> -->
@@ -51,19 +52,25 @@
             <div class="row">
                 <div class="col-md-4 sidebar_left">
                     <div class="row">
+                        <!-- lol -->
                         <div class="col-md-12">
 
                             <img class="img-responsive" data-toggle="modal" id="main_image" data-target="#imageModal" src="http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG" alt="">
-                            <h1 class="room-id text-center white_with_shadow" data-selectedday="2019-03-14" data-room="129">№ 129 -Зал библиотеки</h1>
+                            <h1 class="room-id text-center white_with_shadow" data-selectedday="2019-03-14" data-room="129">№ ${room.name} - ${room.description}</h1>
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-xs-12 text-left">
                                     <ul class="list-group white_with_shadow passport">
                                         <li class="list-group-item custom-icon icon-chairs">
-                                            Всего мест - 25
+                                            Всего мест - ${room.seats}
                                          </li>
                                             <li class="list-group-item custom-icon icon-computer">
-                                            Компьютеров - 13</li><li class="list-group-item custom-icon">
-                                                Проектор - Нету
+                                            Компьютеров - ${room.computers}</li><li class="list-group-item custom-icon">
+                                        <c:if test="${room.hasProjector}">
+                                            <p>Проектор - Есть</p>
+                                        </c:if>
+                                        <c:if test="${!room.hasProjector}">
+                                            <p>Проектор - Нет</p>
+                                        </c:if>
                                             </li>
                                                                                                                                                             </ul>
                                 </div>
@@ -77,22 +84,43 @@
                             </div>
 
                         </div>
+                        <!-- lol -->
                     </div>
 
 
                 </div>
+                <!-- time table -->
                 <div class="col-md-8 sidebar_right">
                     <div class="row">
                         <div class="col-md-12">
                          <h1>Список брони на 14 марта 2019</h1>
                         </div>
+                        <!-- times section -->
+                        <c:forEach items="${times}" var="time">
+                            <div class="row event  booked ">
+                                <h2>${time.offset}</h2>
+                                <form action="/reserve" method="post">
+                                    <input type="text" name="start_time" value="2019-04-18 08:00:00" >
+                                    <input type="text" name="finish_time" value="2019-04-18 09:50:00" >
+                                    <input type="hidden" name="user_id" value="${sesUser.id}" >
+                                    <input type="hidden" name="room_id" value="${room.id}" >
+                                    <input type="hidden" name="time_id" value="${time.id}">
+                                    <input type="hidden" name="status" value="1">
+                                    <button type="submit">reserve</button>
+                                </form>
+                            </div>
+                        </c:forEach>
+                        <!-- times section -->
                     </div><div class="row event  booked ">
                                     <div class="col-xs-12">
                                         <div class="time-block">
                                             <i class="point "></i>
                                         </div>
+
                                         <div class="content free_for_book">
-                                        <h2>8:00 <button class="btn btn-reserve reserve" id="go">Забронировать</button> </h2>
+                                        <h2>8:00 </h2>
+
+                                            <button class="btn btn-reserve reserve" id="go1">Забронировать</button>
                                                 <p>Свободно</p>
                                                  </div>
                                         <div class="content book_this">
@@ -2269,7 +2297,7 @@
                                         </div>
                                         <div class="content ">
                                                  <h2>21:15
-                    <button class="btn btn-reserve reserve">Забронировать</button>                                                </h2>
+                    <button class="btn btn-reserve reserve" id="go2">Забронировать</button>                                                </h2>
                                                 <p>Свободно</p>
                                                      </div>
                                         <div class="content book_this">
@@ -2424,29 +2452,49 @@
 
     </section>
 
-
+<h1>Hello, ${sesUser.nickname}</h1>
 <form action="/reserve" method="post" id="send">
+    <input type="hidden" name="user_id" value="${sesUser.id}" id="form_user">
     <input type="hidden" name="room_id" value="${room.id}" id="form_room">
-    <input type="hidden" name="time_id" value="3" id="form_time">
+    <input type="hidden" name="time_id" value="1" id="form_time">
     <button type="submit">reserve</button>
 </form>
 
-<!--
+
 <script src="../../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.min.js"></script>
 <script src="../../resources/vendor/js/list.js"></script>
 <script src="../../resources/vendor/js/app.js"></script>
--->
+
 <script>
     $('document').ready(function(){
-        $('.reserve').click(function(){
-            $('#form_room').val(${room.id});
-            $('#form_time').val(3);
-           // $('#send').submit();
+        /*
+        $('#go1').click(function(){
+            $('#form_room').val(room.id);
+            $('#form_time').val(1);
+            $('#send').submit();
         });
+        */
+
+
+     /*   $('.reserve').click(function(){
+            $('#form_room').val(4);
+            $('#form_time').val(3);
+            $('#send').submit();
+        });
+
+        $('#go2').click(function (){
+            $(this).css('visibility','hidden');
+            $(this).innerText('Reserved!');
+        });
+        $('#go1').click(function (){
+            $(this).css('visibility','hidden');
+            $(this).innerText('Reserved!');
+        });*/
     });
+
 </script>
 </body>
 </html>

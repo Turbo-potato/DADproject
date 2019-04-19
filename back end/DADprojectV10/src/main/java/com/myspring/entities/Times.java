@@ -13,7 +13,8 @@ public class Times {
     private Long id;
 
     @Column(name = "offset")
-    private String room_id;
+    private String offset;
+
 
     public Long getId() {
         return id;
@@ -23,26 +24,27 @@ public class Times {
         this.id = id;
     }
 
-    public String getRoom_id() {
-        return room_id;
-    }
 
-    public void setRoom_id(String room_id) {
-        this.room_id = room_id;
-    }
 
     public Times() {
 
     }
 
-    public Times(String room_id) {
-
-        this.room_id = room_id;
+    public Times(String offset) {
+        this.offset = offset;
     }
 
-    public Times(Long id, String room_id) {
-
-        this.room_id = room_id;
+    public Times(Long id, String offset) {
+        this.offset = offset;
         this.id = id;
+    }
+
+    public String getOffset() {
+
+        return offset;
+    }
+
+    public void setOffset(String offset) {
+        this.offset = offset;
     }
 }

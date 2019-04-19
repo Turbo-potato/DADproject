@@ -20,9 +20,9 @@
     <form class="text-center border border-light p-5" method="post" action="/auth">
         <p class="h4 mb-4">Sign in</p>
         <!-- Login -->
-        <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Login" name="login">
+        <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Login" name="login" value="admin">
         <!-- Password -->
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password">
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" value="admin">
         <!-- Sign in button -->
         <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
         <!-- Register -->

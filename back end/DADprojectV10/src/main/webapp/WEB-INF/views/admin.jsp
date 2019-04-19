@@ -39,7 +39,7 @@
                     <a class="nav_href" href="/my">My schedule</a>
                 </li>
                 <li>Admin
-                    <a href="/profile">Admin</a>
+                    <a href="/profile"></a>
                 </li>
                 <li><a href="/login">Exit</a></li>
             </ul>
@@ -69,7 +69,31 @@
                 </div>
                 <div class="panel-body" id="rooms">
                     <div class="row rooms_row">
+                        <!-- lol -->
+                        <c:forEach items="${rooms}" var="room">
                         <div class="col-xs-6 col-md-3 room floor_1">
+                            <a href="/library?id=${room.id}">
+                                <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
+                            </a>
+                            <div class="info white_with_shadow">
+                                <div class="row">
+                                    <div class="col-xs-5 number">
+                                        <p>${room.name}</p>
+                                    </div>
+                                    <div class="col-xs-5 name"><p>Library <a href="/room?id=${room.id}">edit</a></p></div>
+                                    <div class="col-xs-2 link"> <p>
+                                        <a href="#${room.id}">
+                                            <i class="go_link"></i>
+                                        </a>
+                                    </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                        <!-- lol -->
+                        <hr>
+                       <!-- <div class="col-xs-6 col-md-3 room floor_1">
                             <a href="/library?id=3">
                                 <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
                             </a>
@@ -457,7 +481,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="row text-center">
                     <ul class="pagination">

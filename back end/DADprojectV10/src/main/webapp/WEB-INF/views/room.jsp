@@ -85,14 +85,23 @@
 <form method="post" action="/editRoom" class="form col-md-6">
     <label>Name</label>
     <input type="text" name="name" class="form-control" value="${room.name}">
-    <label>Time</label>
-    <input type="text" name="time" class="form-control" value="${room.time}">
+    <label>Description</label>
+    <input type="text" name="description" class="form-control" value="${room.description}">
+    <label>Computers</label>
+    <input type="text" name="computers" class="form-control" value="${room.computers}">
     <label>Seats</label>
     <input type="number" name="seats" class="form-control" value="${room.seats}">
     <label>Floor</label>
     <input type="number" name="floor" class="form-control" value="${room.floor}">
+    <label>Has projector</label>
+    <br><br>
+    <select name="hasProjector">
+        <option value="${room.hasProjector}" selected>default</option>
+        <option value="1">yes</option>
+        <option value="0">no</option>
+    </select>
     <input type="hidden" name="id" class="form-control" value="${room.id}">
-    <br>
+    <br><br>
     <button type="submit" class="badge-primary">Save settings</button>
 </form>
     </div>

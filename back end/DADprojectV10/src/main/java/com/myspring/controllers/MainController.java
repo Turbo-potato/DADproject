@@ -3,10 +3,7 @@ import com.myspring.beans.ReserveBean;
 import com.myspring.beans.RoomBean;
 import com.myspring.beans.TimeBean;
 import com.myspring.beans.UserBean;
-import com.myspring.entities.Reserves;
-import com.myspring.entities.Roles;
-import com.myspring.entities.Rooms;
-import com.myspring.entities.Users;
+import com.myspring.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.codec.digest.DigestUtils;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller public class MainController {
 
@@ -37,6 +36,7 @@ import javax.servlet.http.HttpSession;
 
     @RequestMapping(value = {"/","/login"}, method = RequestMethod.GET)
     public ModelAndView login(HttpSession session){
+        session.invalidate();
         ModelAndView mw = new ModelAndView("login");
         return mw;
     }
@@ -68,10 +68,14 @@ import javax.servlet.http.HttpSession;
     }
 
     @RequestMapping(value = "/library", method = RequestMethod.GET)
-    public ModelAndView libraryPage(@RequestParam(name = "id") Long id){
+    public ModelAndView libraryPage(@RequestParam(name = "id") Long id,
+                                    HttpSession session){
         Rooms room = roomBean.getRoomById(id);
+        Users currentUser = (Users)session.getAttribute("sessionUser");
         ModelAndView mw = new ModelAndView("library");
         mw.addObject("room",room);
+        mw.addObject("sesUser",currentUser);
+        mw.addObject("times",timeBean.getAllTimes());
         return mw;
     }
 
@@ -83,22 +87,35 @@ import javax.servlet.http.HttpSession;
 
     @RequestMapping(value = "/reserve", method = RequestMethod.POST)
     public ModelAndView reserveRoom(@RequestParam(name = "room_id") Long room_id,
-                                    @RequestParam(name = "time_id") Long time_id){
-        reserveBean.addReserve(new Reserves(null,room_id,time_id));
-        ModelAndView mw = new ModelAndView("library");
-        return mw;
+                                    @RequestParam(name = "user_id") Long user_id,
+                                    @RequestParam(name = "time_id") Long time_id,
+                                    @RequestParam(name = "start_time") String start_time,
+                                    @RequestParam(name = "finish_time") String finish_time,
+                                    @RequestParam(name = "status") boolean status){
+        /*
+        Rooms room = roomBean.getRoomById(room_id);
+        room.getTimes().add(timeBean.getTimeById(time_id));
+        roomBean.updateRoom(room);
+        */
+
+        //reserveBean.addReserve(new Reserves(null,room_id,time_id));
+        reserveBean.addReserve(new Reserves(null,room_id,time_id, user_id, start_time, finish_time, status));
+
+       // List<Reserves> reserves = reserveBean.getAllReserves();
+       // ModelAndView mw = new ModelAndView("library");
+      //  mw.addObject("room",room);
+      //  return mw;
+        return new ModelAndView("redirect:/library?id=" + room_id);
     }
 
     @RequestMapping(value = "/editRoom", method = RequestMethod.POST)
     public ModelAndView editRoom(@RequestParam(name = "name") String name,
-                                 @RequestParam(name = "time") String time,
                                  @RequestParam(name = "seats") String seats,
                                  @RequestParam(name = "floor") String floor,
                                  @RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
         //Or find by name
         //Rooms room = roomBean.getRoomByName(name);
-        room.setTime(time);
         room.setFloor(floor);
         room.setName(name);
         room.setSeats(seats);
@@ -115,6 +132,7 @@ import javax.servlet.http.HttpSession;
             if(user.getLogin().equals("admin") && user.getPassword().equals("d033e22ae348aeb5660fc2140aec35850c4da997")){
                 ModelAndView mw = new ModelAndView("admin");
                 mw.addObject("user",user);
+                mw.addObject("rooms",roomBean.getAllRooms());
                 return mw;
             }
             else {
