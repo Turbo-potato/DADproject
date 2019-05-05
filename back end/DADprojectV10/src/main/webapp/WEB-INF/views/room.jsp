@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -31,19 +31,21 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav_href" href="/my">My schedule</a>
+                    <a class="nav_href" href="/mySchedule?uid=${sesUser.id}">My schedule</a>
                 </li>
                 <li>
-                    <a href="/admin">Admin page</a>
+                    <a href="/profile1">${sesUser.nickname}</a>
                 </li>
-                <li><a href="">Exit</a></li>
+                <li><a href="/admin">Rooms</a></li>
+                <li><a href="/login">Exit</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<!-- lol -->
 
 <header>
-    <h1 class="text-center ">Room 226</h1>
+    <h1 class="text-center ">${room.description}</h1>
 </header>
 
 
@@ -55,14 +57,14 @@
                     <div class="row rooms_row">
 <div class="col-xs-6 col-md-3 room floor_2">
     <a href="#226">
-        <span class="image" style="background-image: url('http://www.iitu.kz/upload/News/full/News-image-temp15363-0.jpg')"></span>
+        <span class="image" style="background-image: url('${room.imagePath}')"></span>
     </a>
     <div class="info white_with_shadow">
         <div class="row">
             <div class="col-xs-5 number">
-                <p>226</p>
+                <p>${room.name}</p>
             </div>
-            <div class="col-xs-5 name"><p>Laboratory <a href="#"></a></p></div>
+            <div class="col-xs-5 name"><p>${room.description} <a href="#"></a></p></div>
             <div class="col-xs-2 link"> <p>
                 <a href="#226">
                     <i class="go_link"></i>
@@ -70,6 +72,7 @@
             </p>
             </div>
         </div>
+        <!-- lol -->
     </div>
 </div>
                     </div>
@@ -93,8 +96,9 @@
     <input type="number" name="seats" class="form-control" value="${room.seats}">
     <label>Floor</label>
     <input type="number" name="floor" class="form-control" value="${room.floor}">
+    <br>
     <label>Has projector</label>
-    <br><br>
+    <br>
     <select name="hasProjector">
         <option value="${room.hasProjector}" selected>default</option>
         <option value="1">yes</option>

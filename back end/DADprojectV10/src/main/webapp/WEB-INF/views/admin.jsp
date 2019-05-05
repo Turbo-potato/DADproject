@@ -36,10 +36,10 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav_href" href="/my">My schedule</a>
+                    <a class="nav_href" href="/mySchedule?uid=${sesUser.id}">My schedule</a>
                 </li>
-                <li>Admin
-                    <a href="/profile"></a>
+                <li>
+                    <a href="/profile1">${sesUser.nickname}</a>
                 </li>
                 <li><a href="/login">Exit</a></li>
             </ul>
@@ -73,14 +73,16 @@
                         <c:forEach items="${rooms}" var="room">
                         <div class="col-xs-6 col-md-3 room floor_1">
                             <a href="/library?id=${room.id}">
-                                <span class="image" style="background-image: url('http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG')"></span>
-                            </a>
+                                <span class="image" style="background-image: url('${room.imagePath}')"></span>
+                            </a> <!-- http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG -->
                             <div class="info white_with_shadow">
                                 <div class="row">
                                     <div class="col-xs-5 number">
                                         <p>${room.name}</p>
                                     </div>
-                                    <div class="col-xs-5 name"><p>Library <a href="/room?id=${room.id}">edit</a></p></div>
+                                    <c:if test="${sesUser.login.equals(\"admin\")}">
+                                    <div class="col-xs-5 name"><p>${room.description} <a href="/room?id=${room.id}">edit</a></p></div>
+                                    </c:if>
                                     <div class="col-xs-2 link"> <p>
                                         <a href="#${room.id}">
                                             <i class="go_link"></i>

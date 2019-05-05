@@ -1,6 +1,9 @@
 package com.myspring.entities;
 
 
+import com.myspring.beans.RoomBean;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -39,6 +42,16 @@ public class Reserves {
 
     @Column(name = "status")
     private boolean status;
+
+    private String roomName;
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
 
     public String getStart_time() {
         return start_time;

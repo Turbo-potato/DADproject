@@ -34,11 +34,12 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav_href" href="/my">My schedule</a>
+                    <a class="nav_href" href="/mySchedule?uid=${sesUser.id}">My schedule</a>
                 </li>
                 <li>
-                    <a href="/profile">${user.nickname}</a>
+                    <a href="/profile1">${sesUser.nickname}</a>
                 </li>
+                <li><a href="/admin">Rooms</a></li>
                 <li><a href="/login">Exit</a></li>
             </ul>
         </div>
@@ -55,7 +56,7 @@
                         <!-- lol -->
                         <div class="col-md-12">
 
-                            <img class="img-responsive" data-toggle="modal" id="main_image" data-target="#imageModal" src="http://www.iitu.kz/uploads/news/2013/may/3/IMG_9965.JPG" alt="">
+                            <img class="img-responsive" data-toggle="modal" id="main_image" data-target="#imageModal" src="${room.imagePath}" alt="">
                             <h1 class="room-id text-center white_with_shadow" data-selectedday="2019-03-14" data-room="129">№ ${room.name} - ${room.description}</h1>
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-xs-12 text-left">
@@ -97,19 +98,28 @@
                         </div>
                         <!-- times section -->
                         <c:forEach items="${times}" var="time">
-                            <div class="row event  booked ">
-                                <h2>${time.offset}</h2>
-                                <form action="/reserve" method="post">
-                                    <input type="text" name="start_time" value="2019-04-18 08:00:00" >
-                                    <input type="text" name="finish_time" value="2019-04-18 09:50:00" >
-                                    <input type="hidden" name="user_id" value="${sesUser.id}" >
-                                    <input type="hidden" name="room_id" value="${room.id}" >
-                                    <input type="hidden" name="time_id" value="${time.id}">
-                                    <input type="hidden" name="status" value="1">
-                                    <button type="submit">reserve</button>
-                                </form>
-                            </div>
-                        </c:forEach>
+                        <div class="row event  booked ">
+                            <h2>${time.offset}</h2>
+                            <form action="/reserve" method="post">
+                                <input type="hidden" name="start_time" value="${time.firstOffset}" >
+                                <input type="hidden" name="finish_time" value="${time.secondOffset}" >
+                                <input type="hidden" name="user_id" value="${sesUser.id}" >
+                                <input type="hidden" name="room_id" value="${room.id}" >
+                                <input type="hidden" name="time_id" value="${time.id}">
+                                <input type="hidden" name="status" value="1">
+                                <button type="submit" class="btn custom_btn">reserve</button>
+                            </form>
+                            <form action="/unreserve" method="post">
+                                <input type="hidden" name="start_time" value="${time.firstOffset}" >
+                                <input type="hidden" name="finish_time" value="${time.secondOffset}" >
+                                <input type="hidden" name="user_id" value="${sesUser.id}" >
+                                <input type="hidden" name="room_id" value="${room.id}" >
+                                <input type="hidden" name="time_id" value="${time.id}">
+                                <input type="hidden" name="status" value="0">
+                                <button type="submit" class="btn custom_btn">unreserve</button>
+                            </form>
+                        </div>
+                    </c:forEach>
                         <!-- times section -->
                     </div><div class="row event  booked ">
                                     <div class="col-xs-12">

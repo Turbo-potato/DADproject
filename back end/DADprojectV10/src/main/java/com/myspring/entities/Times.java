@@ -15,6 +15,10 @@ public class Times {
     @Column(name = "offset")
     private String offset;
 
+    private String firstOffset;
+
+    private String secondOffset;
+
 
     public Long getId() {
         return id;
@@ -24,7 +28,27 @@ public class Times {
         this.id = id;
     }
 
+    public String getFirstOffset() {
+        String[] parts = offset.split("-");
+        this.firstOffset = parts[0];
+        return firstOffset;
+    }
 
+    public void setFirstOffset(String firstOffset) {
+        String[] parts = offset.split("-");
+        this.firstOffset = parts[0];
+    }
+
+    public String getSecondOffset() {
+        String[] parts = offset.split("-");
+        this.secondOffset = parts[1];
+        return secondOffset;
+    }
+
+    public void setSecondOffset(String secondOffset) {
+        String[] parts = offset.split("-");
+        this.secondOffset = parts[1];
+    }
 
     public Times() {
 

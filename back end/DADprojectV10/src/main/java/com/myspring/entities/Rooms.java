@@ -34,6 +34,17 @@ public class Rooms {
     @Column(name = "hasProjector", length = 100)
     private boolean hasProjector;
 
+    @Column(name = "imagePath", length = 255)
+    private String imagePath;
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     public boolean isHasProjector() {
         return hasProjector;
     }

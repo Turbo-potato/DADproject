@@ -46,6 +46,18 @@ public class ReserveBean {
         return (reservesList!=null?reservesList.get(0):null);
     }
 
+    public boolean isMyReserveById(Long reserve_id, Long user_id){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Reserves> criteriaQuery = builder.createQuery(Reserves.class);
+        Root root = criteriaQuery.from(Reserves.class);
+        Predicate userIdPred = builder.equal(root.get("user_id"), user_id);
+        Predicate reserveIdPred = builder.equal(root.get("id"), reserve_id);
+        List<Reserves> reservesList = session.createQuery(criteriaQuery.where(builder.and(reserveIdPred,userIdPred))).list();
+        session.close();
+        return (reservesList!=null?true:false);
+    }
+
     public Reserves getReserveByName(String name){
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -56,7 +68,6 @@ public class ReserveBean {
         session.close();
         return (reservesList!=null?reservesList.get(0):null);
     }
-
 
     public void addReserve(Reserves reserve){
         Session session = sessionFactory.openSession();
@@ -80,6 +91,21 @@ public class ReserveBean {
         session.delete(reserve);
         transaction.commit();
         session.close();
+    }
+
+    public Reserves getSpecificReserve(Reserves reserve){
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Reserves> criteriaQuery = builder.createQuery(Reserves.class);
+        Root root = criteriaQuery.from(Reserves.class);
+        Predicate room_id = builder.equal(root.get("room_id"), reserve.getRoom_id());
+        Predicate time_id = builder.equal(root.get("time_id"), reserve.getTime_id());
+        Predicate user_id = builder.equal(root.get("user_id"), reserve.getUser_id());
+        Predicate start_time = builder.equal(root.get("start_time"), reserve.getStart_time());
+        Predicate finish_time = builder.equal(root.get("finish_time"), reserve.getFinish_time());
+        Reserves reserveDB = session.createQuery(criteriaQuery.where(builder.and(room_id, time_id,user_id,start_time,finish_time))).getSingleResult();
+        session.close();
+        return reserveDB;
     }
 
 }

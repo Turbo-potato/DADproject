@@ -12,10 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.codec.digest.DigestUtils;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller public class MainController {
+
+    private static final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     @Autowired
     UserBean userBean;
@@ -53,6 +58,30 @@ import java.util.List;
         return mw;
     }
 
+    @RequestMapping(value = "/profile1", method = RequestMethod.GET)
+    public ModelAndView profilePageNew(HttpSession session){
+        Users currentUser = (Users)session.getAttribute("sessionUser");
+        ModelAndView mw = new ModelAndView("profile1");
+        mw.addObject("sesUser", currentUser);
+        return mw;
+    }
+
+    @RequestMapping(value = "/changeProfile", method = RequestMethod.POST)
+    public ModelAndView changeProfile(HttpSession session,
+                                      @RequestParam String login,
+                                      @RequestParam String nickname,
+                                      @RequestParam String password){
+        Users currentUser = (Users)session.getAttribute("sessionUser");
+        ModelAndView mw = new ModelAndView("profile1");
+        Users user = userBean.getUserById(currentUser.getId());
+        user.setLogin(login);
+        user.setNickname(nickname);
+        user.setPassword( DigestUtils.sha1Hex(password) );
+        userBean.updateUser(user);
+        mw.addObject("sesUser", currentUser);
+        return mw;
+    }
+
     @RequestMapping(value = "/index1", method = RequestMethod.GET)
     public ModelAndView index1(HttpSession session){
         ModelAndView mw = new ModelAndView("index1");
@@ -60,10 +89,12 @@ import java.util.List;
     }
 
     @RequestMapping(value = "/room", method = RequestMethod.GET)
-    public ModelAndView roomPage(@RequestParam(name = "id") Long id){
+    public ModelAndView roomPage(HttpSession session, @RequestParam(name = "id") Long id){
         Rooms room = roomBean.getRoomById(id);
         ModelAndView mw = new ModelAndView("room");
         mw.addObject("room",room);
+        Users currentUser = (Users) session.getAttribute("sessionUser");
+        mw.addObject("sesUser",currentUser);
         return mw;
     }
 
@@ -76,12 +107,16 @@ import java.util.List;
         mw.addObject("room",room);
         mw.addObject("sesUser",currentUser);
         mw.addObject("times",timeBean.getAllTimes());
+        mw.addObject("reserves",reserveBean.getAllReserves());
         return mw;
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public ModelAndView adminPage(HttpSession session){
         ModelAndView mw = new ModelAndView("admin");
+        Users user = (Users) session.getAttribute("sessionUser");
+        mw.addObject("sesUser",user);
+        mw.addObject("rooms",roomBean.getAllRooms());
         return mw;
     }
 
@@ -99,7 +134,16 @@ import java.util.List;
         */
 
         //reserveBean.addReserve(new Reserves(null,room_id,time_id));
-        reserveBean.addReserve(new Reserves(null,room_id,time_id, user_id, start_time, finish_time, status));
+        Date date = new Date();
+        System.out.println(sdf.format(date));
+        String starting_time = sdf.format(date).toString() + " " +  start_time;
+        String finishing_time = sdf.format(date).toString() + " " +  finish_time;
+
+        Rooms room = roomBean.getRoomById(room_id);
+        Reserves reserve = new Reserves(null,room_id,time_id, user_id, starting_time, finishing_time, status);
+        reserve.setRoomName(room.getName());
+
+        reserveBean.addReserve(reserve);
 
        // List<Reserves> reserves = reserveBean.getAllReserves();
        // ModelAndView mw = new ModelAndView("library");
@@ -107,6 +151,42 @@ import java.util.List;
       //  return mw;
         return new ModelAndView("redirect:/library?id=" + room_id);
     }
+
+    @RequestMapping(value = "/unreserve", method = RequestMethod.POST)
+    public ModelAndView unreserveRoom(@RequestParam(name = "room_id") Long room_id,
+                                    @RequestParam(name = "user_id") Long user_id,
+                                    @RequestParam(name = "time_id") Long time_id,
+                                    @RequestParam(name = "start_time") String start_time,
+                                    @RequestParam(name = "finish_time") String finish_time,
+                                    @RequestParam(name = "status") boolean status) {
+
+        Date date = new Date();
+        System.out.println(sdf.format(date));
+        String starting_time = sdf.format(date).toString() + " " +  start_time;
+        String finishing_time = sdf.format(date).toString() + " " +  finish_time;
+        Reserves reserve = reserveBean.getSpecificReserve(new Reserves(null,room_id,time_id, user_id, starting_time, finishing_time, status));
+        reserveBean.deleteReserve(reserve);
+        return new ModelAndView("redirect:/library?id=" + room_id);
+    }
+
+    @RequestMapping(value = "/mySchedule", method = RequestMethod.GET)
+    public ModelAndView mySchedule(HttpSession session, @RequestParam(name = "uid") Long user_id) {
+        ArrayList<Reserves> allMyReserves = new ArrayList<Reserves>();
+        List<Reserves> allReserves = reserveBean.getAllReserves();
+        Rooms room = new Rooms();
+        for(Reserves r: allReserves) {
+            if( reserveBean.isMyReserveById(r.getId(), user_id) )
+            room = roomBean.getRoomById(r.getRoom_id());
+            r.setRoomName(room.getName());
+            allMyReserves.add(r);
+        }
+        ModelAndView mw = new ModelAndView("mySchedule");
+        mw.addObject("myReserves", allMyReserves);
+        Users currentUser = (Users) session.getAttribute("sessionUser");
+        mw.addObject("sesUser",currentUser);
+        return mw;
+    }
+
 
     @RequestMapping(value = "/editRoom", method = RequestMethod.POST)
     public ModelAndView editRoom(@RequestParam(name = "name") String name,
@@ -131,13 +211,19 @@ import java.util.List;
             session.setAttribute("sessionUser", user);
             if(user.getLogin().equals("admin") && user.getPassword().equals("d033e22ae348aeb5660fc2140aec35850c4da997")){
                 ModelAndView mw = new ModelAndView("admin");
-                mw.addObject("user",user);
+                mw.addObject("sesUser",user);
                 mw.addObject("rooms",roomBean.getAllRooms());
                 return mw;
             }
             else {
-                ModelAndView mw = new ModelAndView("library"); // library (was profile)
-                mw.addObject("user", user);
+                //CHANGED
+                //ModelAndView mw = new ModelAndView("library"); // library (was profile)
+                //TO ADMIN PAGE!!!
+                ModelAndView mw = new ModelAndView("admin"); // library (was profile)
+                //ALSO ADDED ROOMS!!!
+                mw.addObject("rooms",roomBean.getAllRooms());
+
+                mw.addObject("sesUser", user);
                 return mw;
             }
         }
