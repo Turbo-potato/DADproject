@@ -48,7 +48,8 @@
     <h1 class="text-center ">My Schedule</h1>
 </header>
 
-<table class="table">
+<div class="container">
+<table class="table" style="border: 1px solid black; border-collapse: collapse; ">
     <thead>
     <th scope="col">Room</th>
     <th scope="col">Start Time</th>
@@ -64,11 +65,12 @@
     </c:forEach>
 </tbody>
 </table>
+</div>
 
 <footer>
     <div style="position: absolute; bottom: 0; width: 100%; text-align: center; background-color: white;" class="footer-copyright"><div class="wrap">
         <p>Copyright © 2019 DADA Limited. All Rights Reserved. Booking authditory is a registered trademark.</p><p>
-        <a href="https://github.com/Turbo-potato/DADAproject">Our Github project</a> by <u><a href="team.jsp" target="_blank" rel="nofollow">DADA-Team</a></u>
+        <a href="https://github.com/Turbo-potato/DADAproject">Our Github project</a> by <u><a href="/team" target="_blank" rel="nofollow">DADA-Team</a></u>
     </p></div></div>
 </footer>
 </body>

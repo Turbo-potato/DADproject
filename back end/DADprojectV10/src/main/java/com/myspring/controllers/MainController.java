@@ -58,6 +58,14 @@ import java.util.List;
         return mw;
     }
 
+    @RequestMapping(value = "/team", method = RequestMethod.GET)
+    public ModelAndView teamPage(HttpSession session){
+        Users currentUser = (Users) session.getAttribute("sessionUser");
+        ModelAndView mw = new ModelAndView("team");
+        mw.addObject("sesUser", currentUser);
+        return mw;
+    }
+
     @RequestMapping(value = "/profile1", method = RequestMethod.GET)
     public ModelAndView profilePageNew(HttpSession session){
         Users currentUser = (Users)session.getAttribute("sessionUser");
@@ -108,6 +116,20 @@ import java.util.List;
         mw.addObject("sesUser",currentUser);
         mw.addObject("times",timeBean.getAllTimes());
         mw.addObject("reserves",reserveBean.getAllReserves());
+
+
+        Date date = new Date();
+        //System.out.println(sdf.format(date));
+        String[] currentDate = (sdf.format(date).toString()).split("-");
+        mw.addObject("year", currentDate[0]);
+
+        if(currentDate[1].equals("05"))
+             mw.addObject("month", "май");
+        else
+            mw.addObject("month", "июнь");
+
+        mw.addObject("day", currentDate[2]);
+
         return mw;
     }
 
@@ -205,6 +227,7 @@ import java.util.List;
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     public ModelAndView viewMain(@RequestParam(name = "login") String login, @RequestParam(name = "password") String password, HttpSession session){
+        try{
         Users user = userBean.getUserByLoginAndPassword(login,password);
         //Users user = getUserData();
         if (user != null) {
@@ -230,6 +253,8 @@ import java.util.List;
         else{
             System.out.println("DEBUG: USER IS NULL!");
         }
+
+        } catch (Exception e) { return new ModelAndView("redirect:/login"); }
         return new ModelAndView("redirect:/login");
     }
 

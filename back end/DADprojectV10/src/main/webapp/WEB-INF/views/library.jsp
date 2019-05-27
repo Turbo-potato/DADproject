@@ -76,7 +76,29 @@
                                                                                                                                                             </ul>
                                 </div>
                             </div>
-                            <div class="datepicker white_with_shadow"><div class="datepicker datepicker-inline" style="display: block;"><div class="datepicker-days" style="display: block;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">Март 2019</th><th class="next">»</th></tr><tr><th class="dow">Пн</th><th class="dow">Вт</th><th class="dow">Ср</th><th class="dow">Чт</th><th class="dow">Пт</th><th class="dow">Сб</th><th class="dow">Вс</th></tr></thead><tbody><tr><td class="old day">25</td><td class="old day">26</td><td class="old day">27</td><td class="old day">28</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day">13</td><td class="today active day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td></tr><tr><td class="new day">1</td><td class="new day">2</td><td class="new day">3</td><td class="new day">4</td><td class="new day">5</td><td class="new day">6</td><td class="new day">7</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Янв</span><span class="month">Фев</span><span class="month focused active">Мар</span><span class="month">Апр</span><span class="month">Май</span><span class="month">Июн</span><span class="month">Июл</span><span class="month">Авг</span><span class="month">Сен</span><span class="month">Окт</span><span class="month">Ноя</span><span class="month">Дек</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2010-2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year active focused">2019</span><span class="year new">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade active">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century active">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div></div></div>
+                           <!-- <div class="datepicker white_with_shadow">
+                                <div class="datepicker datepicker-inline" style="display: block;">
+                                    <div class="datepicker-days" style="display: block;">
+                                        <table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;">
+
+                                        </th></tr><tr>
+                                            <th class="prev">«</th>
+                                            <th colspan="5" class="datepicker-switch">Март 2019</th>
+                                            <th class="next">»</th></tr><tr><th class="dow">Пн</th>
+                                            <th class="dow">Вт</th><th class="dow">Ср</th>
+                                            <th class="dow">Чт</th><th class="dow">Пт</th>
+                                            <th class="dow">Сб</th><th class="dow">Вс</th>
+                                        </tr>
+                                        </thead>
+                                            <tbody>
+                                            <tr><td class="old day">25</td><td class="old day">26</td><td class="old day">27</td>
+                                                <td class="old day">28</td><td class="day">1</td><td class="day">2</td>
+                                                <td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td>
+                                                <td class="day">6</td><td class="day">7</td><td class="day">8</td>
+                                                <td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td>
+                                                <td class="day">12</td><td class="day">13</td><td class="today active day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td></tr><tr><td class="new day">1</td><td class="new day">2</td><td class="new day">3</td><td class="new day">4</td><td class="new day">5</td><td class="new day">6</td><td class="new day">7</td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Янв</span><span class="month">Фев</span><span class="month focused active">Мар</span><span class="month">Апр</span><span class="month">Май</span><span class="month">Июн</span><span class="month">Июл</span><span class="month">Авг</span><span class="month">Сен</span><span class="month">Окт</span><span class="month">Ноя</span><span class="month">Дек</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2010-2019</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year active focused">2019</span><span class="year new">2020</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2090</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade active">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot></table></div><div class="datepicker-centuries" style="display: none;"><table class="table-condensed"><thead><tr><th colspan="7" class="datepicker-title" style="display: none;"></th></tr><tr><th class="prev">«</th><th colspan="5" class="datepicker-switch">2000-2900</th><th class="next">»</th></tr></thead><tbody><tr><td colspan="7"><span class="century old">1900</span><span class="century active">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td></tr></tbody><tfoot><tr><th colspan="7" class="today" style="display: none;">Сегодня</th></tr><tr><th colspan="7" class="clear" style="display: none;">Очистить</th></tr></tfoot>
+                                </table>
+                                </div></div></div> -->
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-xs-12 text-center">
                                     <a class="btn custom_btn" href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/index1.jsp">К списку аудиторий</a>
@@ -94,11 +116,11 @@
                 <div class="col-md-8 sidebar_right">
                     <div class="row">
                         <div class="col-md-12">
-                         <h1>Список брони на 14 марта 2019</h1>
+                         <h1 style="margin-bottom: 10px;">Список брони на ${day} ${month} ${year}</h1>
                         </div>
                         <!-- times section -->
                         <c:forEach items="${times}" var="time">
-                        <div class="row event  booked ">
+                        <div class="row event  booked" style="margin-left:10px;">
                             <h2>${time.offset}</h2>
                             <form action="/reserve" method="post">
                                 <input type="hidden" name="start_time" value="${time.firstOffset}" >
@@ -107,7 +129,7 @@
                                 <input type="hidden" name="room_id" value="${room.id}" >
                                 <input type="hidden" name="time_id" value="${time.id}">
                                 <input type="hidden" name="status" value="1">
-                                <button type="submit" class="btn custom_btn">reserve</button>
+                                <button type="submit" class="btn btn-success" style="float:left; margin-right:10px;">reserve</button>
                             </form>
                             <form action="/unreserve" method="post">
                                 <input type="hidden" name="start_time" value="${time.firstOffset}" >
@@ -116,11 +138,11 @@
                                 <input type="hidden" name="room_id" value="${room.id}" >
                                 <input type="hidden" name="time_id" value="${time.id}">
                                 <input type="hidden" name="status" value="0">
-                                <button type="submit" class="btn custom_btn">unreserve</button>
+                                <button type="submit" class="btn btn-danger" style="display:inline-block;">unreserve</button>
                             </form>
                         </div>
                     </c:forEach>
-                        <!-- times section -->
+                        <!--
                     </div><div class="row event  booked ">
                                     <div class="col-xs-12">
                                         <div class="time-block">
@@ -2461,7 +2483,9 @@
         </div>
 
     </section>
+-->
 
+<!--
 <h1>Hello, ${sesUser.nickname}</h1>
 <form action="/reserve" method="post" id="send">
     <input type="hidden" name="user_id" value="${sesUser.id}" id="form_user">
@@ -2469,12 +2493,13 @@
     <input type="hidden" name="time_id" value="1" id="form_time">
     <button type="submit">reserve</button>
 </form>
-
+-->
 
 <script src="../../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../../resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.js"></script>
 <script src="../../resources/vendor/js/bootstrap-datepicker.min.js"></script>
+<script src="../../resources/vendor/bootstrap-datepicker.min.js"></script>
 <script src="../../resources/vendor/js/list.js"></script>
 <script src="../../resources/vendor/js/app.js"></script>
 

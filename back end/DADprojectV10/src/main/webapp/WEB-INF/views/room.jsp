@@ -106,7 +106,7 @@
     </select>
     <input type="hidden" name="id" class="form-control" value="${room.id}">
     <br><br>
-    <button type="submit" class="badge-primary">Save settings</button>
+    <button type="submit" style="margin-left: -10px" class="btn custom_btn">Save settings</button>
 </form>
     </div>
 </div>

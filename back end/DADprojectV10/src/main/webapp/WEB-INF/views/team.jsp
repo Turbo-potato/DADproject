@@ -5,9 +5,9 @@
    <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/style.css" rel="stylesheet">
-    <link href="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/vendor/bootstrap/css/style.css" rel="stylesheet">
+    <link href="../resources/vendor/bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link href="http://www.iitu.kz/css/font-awesome.min.css" rel="stylesheet">
     <meta charset="utf-8">
     <title>Booking</title>
@@ -91,12 +91,13 @@ html {
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="nav_href" href="index1.jsp">My schedule</a>
+                    <a class="nav_href" href="/mySchedule">My schedule</a>
                 </li>
                 <li>
-                    <a href="profile.jsp">John Doe</a>
+                    <a href="/profile1">${sesUser.nickname}</a>
                 </li>
-                <li><a href="">Exit</a></li>
+                <li><a href="/admin">Rooms</a></li>
+                <li><a href="/login">Exit</a></li>
             </ul>
         </div>
     </div>
@@ -108,7 +109,7 @@ html {
 <div class="row" style="margin-left: 15%; width: 70%">
   <div class="colum">
     <div class="car">
-      <img src="res/danilaSquare.jpg" alt="Jane" height="350" style="width:100%">
+      <img src="http://tutorialspoint.ru:8080/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/res/danilaSquare.jpg" alt="Jane" height="350" style="width:100%">
       <div class="containe">
         <h2>Dan Xawdxawdx</h2>
         <p class="title">FrontEnd</p>
@@ -121,7 +122,7 @@ html {
 
   <div class="colum">
     <div class="car">
-      <img src="res/aliSquare.jpg" alt="Mike" height="350" style="width:100%">
+      <img src="http://tutorialspoint.ru:8080/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/res/aliSquare.jpg" alt="Mike" height="350" style="width:100%">
       <div class="containe">
         <h2>Ali ZP</h2>
         <p class="title">DB manager</p>
@@ -133,7 +134,7 @@ html {
   </div>
   <div class="colum">
     <div class="car">
-      <img src="res/dias.jpg" alt="John" height="350" style="width:100%">
+      <img src="http://tutorialspoint.ru:8080/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/res/dias.jpg" alt="John" height="350" style="width:100%">
       <div class="containe">
         <h2>Dias Diegos</h2>
         <p class="title">BackENd</p>

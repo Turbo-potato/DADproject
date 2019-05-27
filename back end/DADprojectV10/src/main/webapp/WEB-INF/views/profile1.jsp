@@ -57,7 +57,7 @@
         <form action="/changeProfile" method="post">
         <div class="col-md-12">
           <h1>Edit Profile</h1>
-      <h3>Personal info</h3></div>
+      <h3 style="margin-left: 10px;">Personal info</h3></div>
 
         <div class="form-group col-md-7">
           <label class="col-lg-6 control-label">Login:</label>
@@ -87,15 +87,21 @@
         </div>
         -->
         <div class="form-group col-md-7">
-          <label class="col-md-3 control-label">Password:</label>
+            <label class="col-md-3 control-label">Current Password:</label>
+            <div class="col-md-10">
+                <input class="form-control" name="password" type="password">
+            </div>
+        </div>
+        <div class="form-group col-md-7">
+          <label class="col-md-3 control-label">New Password:</label>
           <div class="col-md-10">
-            <input class="form-control" value="admin" name="password" type="password">
+            <input class="form-control" name="password" type="password">
           </div>
         </div>
         <div class="form-group col-md-7">
           <label class="col-md-10 control-label">Confirm password:</label>
           <div class="col-md-10">
-            <input class="form-control" value="admin" type="password">
+            <input class="form-control" type="password">
           </div>
         </div>
     </div>
@@ -111,27 +117,25 @@
     </div>
       </form>
   <div>
-    <img src="https://cdn.discordapp.com/attachments/290039438602534912/568405052314877962/aliSquare.jpg" style="display: block; align: flex-start; " width="350" height="350">
+    <img src="https://i1.wp.com/www.boothebrothers.com/wp-content/uploads/2014/10/default-avatar.png?w=600" style="display: block; align: flex-start; " width="350" height="350">
     <div>
-          <button style="margin-top: 10px; margin-left: 140px" class="btn custom_btn"> Load photo</button>
+          <button style="margin-top: -100px; margin-left: 800px" class="btn custom_btn"> Load photo</button>
     </div>
   </div>
      </div>    <!-- </div> -->
   </div>
-  <div>
-   
-    <div>
-          
-    </div>
-  </div>
-     </div>    <!-- </div> -->
-  </div>
+<!--  </div> -->    <!-- </div> -->
+<!-- </div> -->
+
   <footer>
-<div style="position: absolute; bottom: 0; width: 100%; text-align: center; background-color: white;" class="footer-copyright"><div class="wrap">
+<div style="position: absolute; bottom: 0; width: 100%; text-align: center; background-color: white;" class="footer-copyright">
+    <div class="wrap">
   <p>Copyright © 2019 DADA Limited. All Rights Reserved. Booking authditory is a registered trademark.</p><p>
-  <a href="https://github.com/Turbo-potato/DADAproject">Our Github project</a> by <u><a href="team.jsp" target="_blank" rel="nofollow">DADA-Team</a></u>
-</p></div></div>
+  <a href="https://github.com/Turbo-potato/DADAproject">Our Github project</a> by <u><a href="/team" target="_blank" rel="nofollow">DADA-Team</a></u>
+</p></div>
+</div>
 </footer>
+
 <script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/jquery/jquery.min.js"></script>
 <script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor\bootstrap\js/bootstrap.min.js"></script>
 <script src="/newtest/DADAproject/back%20end/DADprojectV10/src/main/webapp/WEB-INF/views/vendor/bootstrap-datepicker.js"></script>
